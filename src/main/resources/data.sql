@@ -1,0 +1,14 @@
+insert into client(name, cpf, income, birth_date, children ) values ('José Mateus', '34444444-22', 4000.00,TIMESTAMP WITH TIME ZONE  '1999-07-20T10:00:00Z', 3);
+insert into client(name, cpf, income, birth_date, children ) values ('Vinícius de Morais', '302323444-22', 4000.00, TIMESTAMP WITH TIME ZONE  '1997-07-20T10:00:00Z', 1);
+insert into client(name, cpf, income, birth_date, children ) values ('Agatha Christ', '300323444-22', 4000.00, TIMESTAMP WITH TIME ZONE '1990-07-20T10:00:00Z', 0);
+insert into client(name, cpf, income, birth_date, children ) values ('Fernando Borges', '999323444-22', 4000.00, TIMESTAMP WITH TIME ZONE '1989-07-20T10:00:00Z', 1);
+insert into client(name, cpf, income, birth_date, children ) values ('Joel Campos', '600323444-22', 4000.00, TIMESTAMP WITH TIME ZONE '1987-07-20T10:00:00Z', 1);
+insert into client(name, cpf, income, birth_date, children ) values ('Nélio Alves', '503234144-22', 4000.00, TIMESTAMP WITH TIME ZONE '2000-07-20T10:00:00Z', 2);
+insert into client(name, cpf, income, birth_date, children ) values ('Maria Ribeiro', '3003123144-22', 4000.00, TIMESTAMP WITH TIME ZONE '2001-07-20T10:00:00Z', 9);
+insert into client(name, cpf, income, birth_date, children ) values ('Irineu Duarte', '3033333-22', 4000.00,TIMESTAMP WITH TIME ZONE  '1970-07-20T10:00:00Z', 3);
+insert into client(name, cpf, income, birth_date, children ) values ('Leonardo de Morais', '300323444-22', 4000.00, TIMESTAMP WITH TIME ZONE  '2020-07-20T10:00:00Z', 1);
+insert into client(name, cpf, income, birth_date, children ) values ('Agatha Christ', '300323444-22', 4000.00, TIMESTAMP WITH TIME ZONE '2020-07-20T10:00:00Z', 0);
+insert into client(name, cpf, income, birth_date, children ) values ('Lindo Borges', '300323444-22', 4000.00, TIMESTAMP WITH TIME ZONE '2020-07-20T10:00:00Z', 1);
+insert into client(name, cpf, income, birth_date, children ) values ('Macael Campos', '307623444-22', 4000.00, TIMESTAMP WITH TIME ZONE '2020-07-20T10:00:00Z', 1);
+insert into client(name, cpf, income, birth_date, children ) values ('Davi Alves', '300327644-22', 4000.00, TIMESTAMP WITH TIME ZONE '2020-07-20T10:00:00Z', 2);
+insert into client(name, cpf, income, birth_date, children ) values ('Marcia Santos', '600323444-22', 4000.00, TIMESTAMP WITH TIME ZONE '2020-07-20T10:00:00Z', 9);
