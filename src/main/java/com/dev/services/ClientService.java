@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.dev.dto.ClientDTO;
 import com.dev.entities.Client;
 import com.dev.repositories.ClientRepositoy;
+import com.dev.services.exception.ClientNotFoundException;
 
 @Service
 public class ClientService {
@@ -29,6 +30,20 @@ public class ClientService {
 		Page<Client> list = repository.findAll(pageRequest);
 		return list.map(x -> new ClientDTO(x));
 		
+	}
+	
+	public ClientDTO findById(Long id) {
+		Client client = repository
+				.findById(id).orElseThrow( 
+						() -> new ClientNotFoundException("Client not found"));
+		return new ClientDTO(client);
+	}
+
+	public ClientDTO insert(ClientDTO dto) {
+		Client client = repository
+				.save(new Client(null, dto.getName(), dto.getCpf(), dto.getIncome(), dto.getBirthDate(), dto.getChildren()));
+		
+		return new ClientDTO(client);
 	}
 	
 	
