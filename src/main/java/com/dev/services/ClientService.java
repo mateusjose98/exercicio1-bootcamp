@@ -16,6 +16,7 @@ import com.dev.dto.ClientDTO;
 import com.dev.entities.Client;
 import com.dev.repositories.ClientRepositoy;
 import com.dev.services.exception.ClientNotFoundException;
+import com.dev.services.exception.ResourceNotFoundException;
 
 @Service
 public class ClientService {
@@ -39,7 +40,7 @@ public class ClientService {
 	public ClientDTO findById(Long id) {
 		Client client = repository
 				.findById(id).orElseThrow( 
-						() -> new ClientNotFoundException("Client not found"));
+						() -> new ResourceNotFoundException("Client not found"));
 		return new ClientDTO(client);
 	}
 
@@ -66,7 +67,7 @@ public class ClientService {
 			return new ClientDTO(entity);
 			
 		}catch (EntityNotFoundException e){
-			throw new ClientNotFoundException("Id not found");
+			throw new ResourceNotFoundException("Id not found");
 		}
 	}
 
@@ -75,7 +76,7 @@ public class ClientService {
 			repository.deleteById(id);
 			
 		} catch (EmptyResultDataAccessException e) {
-			throw new ClientNotFoundException("Id not found");
+			throw new ResourceNotFoundException("Id not found");
 		} 
 		
 	}
