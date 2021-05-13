@@ -19,6 +19,7 @@ public class ClientDTO {
 	}
 	
 	public ClientDTO(Client entity) {
+		this.id  = entity.getId();
 		this.name = entity.getName();
 		this.birthDate = entity.getBirthDate();
 		this.children = entity.getChildren();
