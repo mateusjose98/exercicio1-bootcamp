@@ -1,11 +1,17 @@
 package com.dev.resources;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.dev.dto.ClientDTO;
+import com.dev.entities.Client;
 import com.dev.services.ClientService;
+import com.dev.util.GeradorPDF;
 
 @RestController
 @RequestMapping(value = "/clients")
@@ -27,6 +35,27 @@ public class ClientController {
 	
 	@Autowired
 	public ClientService service;
+	
+	@GetMapping(value = "/print-report",
+            produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity customersReport() throws IOException {
+		
+        List<ClientDTO> customers =  service.findAll();
+        
+        
+
+        ByteArrayInputStream bis = GeradorPDF.customerPDFReport(customers);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=customers.pdf");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+    }
+	
 
 	@GetMapping
 	public ResponseEntity<Page<ClientDTO>>findAll(
